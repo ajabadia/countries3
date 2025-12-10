@@ -8,6 +8,7 @@ import * as crypto from 'crypto';
 import { CreateUserDto } from '../users/dto/create-user.dto';
 import { PasswordReset, PasswordResetDocument } from './schemas/password-reset.schema';
 import { EmailService } from '../common/email.service';
+import { TokenService } from './token.service';
 
 @Injectable()
 export class AuthService {
@@ -15,6 +16,7 @@ export class AuthService {
         private usersService: UsersService,
         private jwtService: JwtService,
         private emailService: EmailService,
+        private tokenService: TokenService,
         @InjectModel(PasswordReset.name, 'auth_db') private passwordResetModel: Model<PasswordResetDocument>,
     ) { }
 
@@ -37,8 +39,13 @@ export class AuthService {
             sub: user._id,
             roles: user.roles || ['user']  // Include roles array for RBAC
         };
+
+        // Generate refresh token
+        const refreshToken = await this.tokenService.generateRefreshToken(user._id);
+
         return {
             access_token: this.jwtService.sign(payload),
+            refresh_token: refreshToken,
             user: {
                 username: user.username,
                 roles: user.roles || ['user']

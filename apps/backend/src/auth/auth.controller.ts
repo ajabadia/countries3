@@ -3,10 +3,18 @@ import { AuthService } from './auth.service';
 import { AuthGuard } from '@nestjs/passport';
 import { ForgotPasswordDto } from './dto/forgot-password.dto';
 import { ResetPasswordDto } from './dto/reset-password.dto';
+import { RefreshTokenDto } from './dto/refresh-token.dto';
+import { LogoutDto } from './dto/logout.dto';
+import { TokenService } from './token.service';
+import { JwtService } from '@nestjs/jwt';
 
 @Controller('auth')
 export class AuthController {
-    constructor(private authService: AuthService) { }
+    constructor(
+        private authService: AuthService,
+        private tokenService: TokenService,
+        private jwtService: JwtService,
+    ) { }
 
     @UseGuards(AuthGuard('local'))
     @Post('login')
@@ -38,5 +46,24 @@ export class AuthController {
     @Get('validate-reset-token/:token')
     async validateResetToken(@Param('token') token: string) {
         return this.authService.validateResetToken(token);
+    }
+
+    @Post('refresh')
+    async refresh(@Body() dto: RefreshTokenDto) {
+        const user = await this.tokenService.validateRefreshToken(dto.refresh_token);
+        const payload = {
+            username: user.username,
+            sub: user._id,
+            roles: user.roles || ['user']
+        };
+        const newAccessToken = this.jwtService.sign(payload);
+        return { access_token: newAccessToken };
+    }
+
+    @Post('logout')
+    @UseGuards(AuthGuard('jwt'))
+    async logout(@Body() dto: LogoutDto) {
+        await this.tokenService.revokeRefreshToken(dto.refresh_token);
+        return { message: 'Logged out successfully' };
     }
 }

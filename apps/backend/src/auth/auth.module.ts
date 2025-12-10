@@ -9,25 +9,28 @@ import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { AuthController } from './auth.controller';
 import { PasswordReset, PasswordResetSchema } from './schemas/password-reset.schema';
+import { RefreshToken, RefreshTokenSchema } from './schemas/refresh-token.schema';
 import { EmailService } from '../common/email.service';
+import { TokenService } from './token.service';
 
 @Module({
     imports: [
         UsersModule,
         PassportModule,
         MongooseModule.forFeature([
-            { name: PasswordReset.name, schema: PasswordResetSchema, collection: 'password_resets' }
+            { name: PasswordReset.name, schema: PasswordResetSchema, collection: 'password_resets' },
+            { name: RefreshToken.name, schema: RefreshTokenSchema, collection: 'refresh_tokens' }
         ], 'auth_db'),
         JwtModule.registerAsync({
             imports: [ConfigModule],
             useFactory: async (configService: ConfigService) => ({
                 secret: configService.get<string>('JWT_SECRET') || 'secretKey',
-                signOptions: { expiresIn: '60m' },
+                signOptions: { expiresIn: '15m' }, // Short-lived access tokens
             }),
             inject: [ConfigService],
         }),
     ],
-    providers: [AuthService, LocalStrategy, JwtStrategy, EmailService],
+    providers: [AuthService, LocalStrategy, JwtStrategy, EmailService, TokenService],
     controllers: [AuthController],
     exports: [AuthService],
 })
