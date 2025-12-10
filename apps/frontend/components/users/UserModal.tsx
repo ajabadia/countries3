@@ -12,12 +12,12 @@ interface UserModalProps {
 }
 
 export default function UserModal({ isOpen, onClose, onSave, user }: UserModalProps) {
-    const [formData, setFormData] = useState<CreateUserDto>({
+    const [formData, setFormData] = useState<any>({
         email: '',
         password: '',
         firstName: '',
         lastName: '',
-        role: 'user',
+        roles: ['user'],
         isActive: true,
     });
     const [loading, setLoading] = useState(false);
@@ -30,7 +30,7 @@ export default function UserModal({ isOpen, onClose, onSave, user }: UserModalPr
                 password: '', // Don't fill password on edit
                 firstName: user.firstName || '',
                 lastName: user.lastName || '',
-                role: user.role,
+                roles: user.roles || ['user'],
                 isActive: user.isActive,
             });
         } else {
@@ -40,7 +40,7 @@ export default function UserModal({ isOpen, onClose, onSave, user }: UserModalPr
                 password: '',
                 firstName: '',
                 lastName: '',
-                role: 'user',
+                roles: ['user'],
                 isActive: true,
             });
         }
@@ -54,10 +54,17 @@ export default function UserModal({ isOpen, onClose, onSave, user }: UserModalPr
         setLoading(true);
         setError('');
         try {
-            await onSave(formData);
+            // Remove empty password from update payload
+            const dataToSubmit = { ...formData };
+            if (user && !dataToSubmit.password) {
+                delete dataToSubmit.password;
+            }
+            console.log('📤 Submitting formData:', JSON.stringify(dataToSubmit, null, 2));
+            await onSave(dataToSubmit);
             onClose();
         } catch (err: any) {
             setError(err.response?.data?.message || 'Failed to save user');
+            console.error('❌ Modal error:', err);
         } finally {
             setLoading(false);
         }
@@ -131,8 +138,8 @@ export default function UserModal({ isOpen, onClose, onSave, user }: UserModalPr
                     <div>
                         <label className="block text-sm font-medium text-gray-400 mb-1">Role</label>
                         <select
-                            value={formData.role}
-                            onChange={(e) => setFormData({ ...formData, role: e.target.value })}
+                            value={formData.roles ? formData.roles[0] : 'user'}
+                            onChange={(e) => setFormData({ ...formData, roles: [e.target.value] })}
                             className="w-full bg-gray-800 border border-gray-700 rounded p-2 text-white focus:ring-2 focus:ring-blue-500 outline-none"
                         >
                             <option value="user">User</option>

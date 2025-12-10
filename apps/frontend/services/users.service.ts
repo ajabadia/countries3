@@ -13,7 +13,11 @@ export const usersService = {
     },
 
     updateUser: async (id: string, data: UpdateUserDto) => {
+        console.log('🌐 usersService.updateUser called');
+        console.log('🌐 URL:', `/users/${id}`);
+        console.log('🌐 Data:', JSON.stringify(data, null, 2));
         const response = await api.patch<IUser>(`/users/${id}`, data);
+        console.log('🌐 Response:', response.data);
         return response.data;
     },
 

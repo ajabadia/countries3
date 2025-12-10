@@ -8,6 +8,7 @@ import { ArrowLeft, UserPlus, Pencil, Trash2, RefreshCw } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import DevFooter from '@/components/common/DevFooter';
+import DashboardHeader from '@/components/common/DashboardHeader';
 
 export default function UsersPage() {
     const [users, setUsers] = useState<IUser[]>([]);
@@ -56,16 +57,28 @@ export default function UsersPage() {
     };
 
     const handleSubmit = async (data: CreateUserDto | UpdateUserDto) => {
-        if (selectedUser) {
-            await usersService.updateUser(selectedUser._id, data);
-        } else {
-            await usersService.createUser(data as CreateUserDto);
+        console.log('🎯 handleSubmit called with data:', JSON.stringify(data, null, 2));
+        console.log('🎯 selectedUser:', selectedUser);
+        try {
+            if (selectedUser) {
+                console.log('🔄 Calling updateUser for ID:', selectedUser._id);
+                await usersService.updateUser(selectedUser._id, data);
+                console.log('✅ Update successful');
+            } else {
+                console.log('➕ Calling createUser');
+                await usersService.createUser(data as CreateUserDto);
+                console.log('✅ Create successful');
+            }
+            fetchUsers();
+        } catch (error) {
+            console.error('❌ Error in handleSubmit:', error);
+            throw error;
         }
-        fetchUsers();
     };
 
     return (
         <div className="min-h-screen bg-gray-950 text-white p-6">
+            <DashboardHeader />
             <header className="mb-6 flex justify-between items-center">
                 <div className="flex items-center gap-4">
                     <Link href="/dashboard" className="p-2 hover:bg-gray-800 rounded-full transition">
@@ -114,7 +127,7 @@ export default function UsersPage() {
                                 </td>
                                 <td className="p-4">
                                     <span className="px-2 py-1 bg-gray-800 rounded text-xs uppercase font-bold text-gray-300">
-                                        {user.role}
+                                        {user.roles ? user.roles.join(', ') : 'user'}
                                     </span>
                                 </td>
                                 <td className="p-4">

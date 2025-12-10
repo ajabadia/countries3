@@ -6,6 +6,7 @@ import { auditService } from '@/services/audit.service';
 import { ArrowLeft, RefreshCw } from 'lucide-react';
 import Link from 'next/link';
 import DevFooter from '@/components/common/DevFooter';
+import DashboardHeader from '@/components/common/DashboardHeader';
 
 export default function AuditPage() {
     const [logs, setLogs] = useState<IAuditLog[]>([]);
@@ -31,6 +32,7 @@ export default function AuditPage() {
 
     return (
         <div className="min-h-screen bg-gray-950 text-white p-6">
+            <DashboardHeader />
             <header className="mb-6 flex justify-between items-center">
                 <div className="flex items-center gap-4">
                     <Link href="/dashboard" className="p-2 hover:bg-gray-800 rounded-full transition">

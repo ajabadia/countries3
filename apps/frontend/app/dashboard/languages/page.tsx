@@ -7,6 +7,7 @@ import LanguageModal from '@/components/languages/LanguageModal';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import DevFooter from '@/components/common/DevFooter';
+import DashboardHeader from '@/components/common/DashboardHeader';
 
 export default function LanguagesPage() {
     const [languages, setLanguages] = useState<ILanguage[]>([]);
@@ -89,7 +90,8 @@ export default function LanguagesPage() {
     };
 
     return (
-        <div className="min-h-screen bg-gray-950 text-white p-8">
+        <div className="min-h-screen bg-gray-950 text-white p-6">
+            <DashboardHeader />
             <div className="max-w-7xl mx-auto">
                 <div className="flex justify-between items-center mb-6">
                     <div className="flex items-center gap-4">

@@ -3,7 +3,7 @@ export interface IUser {
     email: string;
     firstName: string;
     lastName: string;
-    role: string;
+    roles: string[];  // Array to match schema
     isActive: boolean;
     createdAt?: Date;
     updatedAt?: Date;
@@ -14,7 +14,7 @@ export class CreateUserDto {
     password!: string;
     firstName!: string;
     lastName!: string;
-    role?: string;
+    roles?: string[];  // Array to match schema
     isActive?: boolean;
 }
 
@@ -23,6 +23,6 @@ export class UpdateUserDto {
     password?: string;
     firstName?: string;
     lastName?: string;
-    role?: string;
+    roles?: string[];  // Array to match schema
     isActive?: boolean;
 }

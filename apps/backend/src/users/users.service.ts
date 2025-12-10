@@ -42,7 +42,7 @@ export class UsersService {
                 isActive: createUserDto.isActive !== undefined ? createUserDto.isActive : true,
                 username: createUserDto.email,
                 passwordHash,
-                roles: createUserDto.role ? [createUserDto.role] : ['user']
+                roles: createUserDto.roles || ['user']  // Use roles array from DTO
             };
             console.log('User object prepared:', JSON.stringify(userToCreate));
 
@@ -56,13 +56,17 @@ export class UsersService {
     }
 
     async update(id: string, updateUserDto: UpdateUserDto): Promise<UserDocument | null> {
+        console.log('🔧 UPDATE - Received DTO:', JSON.stringify(updateUserDto, null, 2));
         const updates: any = { ...updateUserDto };
         if (updateUserDto.password) {
             // Stub bcrypt to avoid binary crashes (matches create method)
             updates.passwordHash = `hashed_${updateUserDto.password}`;
             delete updates.password;
         }
-        return this.userModel.findByIdAndUpdate(id, updates, { new: true }).exec();
+        console.log('🔧 UPDATE - Final updates object:', JSON.stringify(updates, null, 2));
+        const result = await this.userModel.findByIdAndUpdate(id, updates, { new: true }).exec();
+        console.log('🔧 UPDATE - Result roles:', result?.roles);
+        return result;
     }
 
     async remove(id: string): Promise<UserDocument | null> {

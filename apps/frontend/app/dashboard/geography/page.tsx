@@ -1,13 +1,15 @@
 'use client';
 
 import { useState } from 'react';
-import { Plus, Trash2, FileUp } from 'lucide-react';
+import { Plus, Trash2, FileUp, ArrowLeft } from 'lucide-react';
 import { IArea } from '@countries3/shared';
 import AreaTree from '@/components/geography/AreaTree';
 import AreaForm from '@/components/geography/AreaForm';
 import ImportModal from '@/components/geography/ImportModal';
 import { geographyService } from '@/services/geography.service';
 import DevFooter from '@/components/common/DevFooter';
+import Link from 'next/link';
+import DashboardHeader from '@/components/common/DashboardHeader';
 
 export default function GeographyPage() {
     const [selectedArea, setSelectedArea] = useState<IArea | null>(null);
@@ -46,10 +48,16 @@ export default function GeographyPage() {
 
     return (
         <div className="min-h-screen bg-gray-950 text-white p-6 flex flex-col">
+            <DashboardHeader />
             <header className="mb-6 flex justify-between items-center">
-                <div>
-                    <h1 className="text-3xl font-bold text-blue-400">Geography Manager</h1>
-                    <p className="text-gray-400 text-sm">Manage countries, continents, and regions</p>
+                <div className="flex items-center gap-4">
+                    <Link href="/dashboard" className="p-2 hover:bg-gray-800 rounded-full transition">
+                        <ArrowLeft className="w-5 h-5 text-gray-400" />
+                    </Link>
+                    <div>
+                        <h1 className="text-3xl font-bold text-blue-400">Geography Manager</h1>
+                        <p className="text-gray-400 text-sm">Manage countries, continents, and regions</p>
+                    </div>
                 </div>
             </header>
 
