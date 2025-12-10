@@ -81,4 +81,21 @@ export class UsersService {
     async updatePassword(userId: string, passwordHash: string): Promise<UserDocument | null> {
         return this.userModel.findByIdAndUpdate(userId, { passwordHash }, { new: true }).exec();
     }
+
+    async updateProfile(userId: string, updateData: any): Promise<UserDocument | null> {
+        const updates: any = {};
+
+        // Only include fields that are provided
+        if (updateData.firstName !== undefined) updates.firstName = updateData.firstName;
+        if (updateData.lastName !== undefined) updates.lastName = updateData.lastName;
+        if (updateData.email !== undefined) updates.email = updateData.email;
+
+        // If password is provided, hash it
+        if (updateData.password) {
+            const bcrypt = require('bcryptjs');
+            updates.passwordHash = await bcrypt.hash(updateData.password, 10);
+        }
+
+        return this.userModel.findByIdAndUpdate(userId, updates, { new: true }).exec();
+    }
 }

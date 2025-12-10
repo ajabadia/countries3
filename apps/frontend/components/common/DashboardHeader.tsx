@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { api } from '@/lib/api';
 import { User, ChevronLeft, ChevronRight } from 'lucide-react';
+import Link from 'next/link';
 
 export default function DashboardHeader() {
     const [user, setUser] = useState<any>(null);
@@ -29,14 +30,14 @@ export default function DashboardHeader() {
                     >
                         <ChevronRight className="w-4 h-4 text-gray-400" />
                     </button>
-                    <div className="flex items-center gap-2 pr-4">
+                    <Link href="/dashboard/profile" className="flex items-center gap-2 pr-4 hover:bg-gray-800 transition px-2 py-1 rounded">
                         <User className="w-4 h-4 text-blue-400" />
                         <div className="text-sm">
-                            <p className="font-semibold text-white">
+                            <p className="font-semibold text-white hover:text-blue-400 transition">
                                 {user.username}{roleText}
                             </p>
                         </div>
-                    </div>
+                    </Link>
                 </>
             )}
             {isCollapsed && (

@@ -5,7 +5,8 @@ import { useRouter } from 'next/navigation';
 import { api } from '@/lib/api';
 import DevFooter from '@/components/common/DevFooter';
 import DashboardHeader from '@/components/common/DashboardHeader';
-import { Globe, Users, Languages, FileText } from 'lucide-react';
+import { Globe, Users, Languages, FileText, UserCircle } from 'lucide-react';
+import Link from 'next/link';
 
 export default function DashboardPage() {
     const [user, setUser] = useState<any>(null);
@@ -24,7 +25,16 @@ export default function DashboardPage() {
             <DashboardHeader />
             <h1 className="text-3xl font-bold text-blue-400 mb-4">Dashboard</h1>
             <div className="bg-gray-900 p-6 rounded-lg border border-gray-800">
-                <p>Welcome, <span className="font-semibold text-white">{user.username}</span></p>
+                <div className="flex items-center gap-2">
+                    <p>Welcome, <span className="font-semibold text-white">{user.username}</span></p>
+                    <Link
+                        href="/dashboard/profile"
+                        className="inline-flex items-center justify-center p-1 rounded-full hover:bg-gray-800 transition"
+                        title="Go to My Profile"
+                    >
+                        <UserCircle className="w-5 h-5 text-blue-400 hover:text-blue-300" />
+                    </Link>
+                </div>
                 <p className="text-sm text-gray-400 mt-2">ID: {user.userId}</p>
 
                 <div className="mt-6 border-t border-gray-800 pt-4">
