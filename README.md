@@ -14,9 +14,10 @@ A modern full-stack application for managing geographic data, languages, users, 
 
 - **👥 User Management**
   - User authentication with JWT
-  - Role-based access control (Admin/User)
+  - Role-based access control (RBAC) with roles array
   - User activation/deactivation
-  - Password hashing (bcrypt)
+  - Secure password hashing with bcryptjs
+  - User role management (supports multiple roles)
 
 - **🗣️ Languages Module**
   - 131+ languages with ISO codes
@@ -50,10 +51,10 @@ A modern full-stack application for managing geographic data, languages, users, 
 
 ### Backend
 - **NestJS 10**
-- **MongoDB** with Mongoose
+- **MongoDB** with Mongoose (3 databases: world, auth_db, audit_db)
 - **Passport JWT** authentication
 - **Class Validator** for DTOs
-- **Bcrypt** for password hashing
+- **Bcryptjs** for secure password hashing
 
 ### Infrastructure
 - **Docker & Docker Compose**
@@ -94,8 +95,10 @@ A modern full-stack application for managing geographic data, languages, users, 
 
 ### Default Credentials
 
+All users have been reset to password: `111111`
+
 - **Admin:** `ajabadia@gmail.com` / `111111`
-- **User:** `readyuser@test.com` / `password123`
+- **Test User:** `test@example.com` / `111111`
 
 ## 📁 Project Structure
 
@@ -217,17 +220,25 @@ pnpm test
 
 ## 🐛 Known Issues
 
-- **Bcrypt Native Module**: Currently using stubbed password hashing in Docker. For production, migrate to `bcryptjs` or use Debian-based Docker image.
-- **TypeScript Lints**: Some non-critical lints exist related to implicit `any` types and missing module declarations.
+- **TypeScript Lints**: Some non-critical lints exist in frontend related to implicit `any` types and missing module declarations (non-blocking).
 
 ## 🚧 Roadmap
 
-- [ ] Migrate to bcryptjs for production
-- [ ] Implement full RBAC with route guards
-- [ ] Add unit and E2E tests
-- [ ] Generate API documentation with Swagger
-- [ ] Add data export/import features
-- [ ] Implement advanced search and filtering
+### IAM Improvements
+- [ ] Reset password functionality
+- [ ] Refresh tokens
+- [ ] "Mi Perfil" user profile page
+
+### Infrastructure
+- [ ] Unit testing
+- [ ] E2E testing
+- [ ] CI/CD pipeline
+- [ ] API documentation (Swagger)
+
+### New Modules
+- [ ] Legal Module (country regulations, legal texts)
+- [ ] Advanced search and filtering
+- [ ] Data export/import features
 
 ## 👨‍💻 Author
 

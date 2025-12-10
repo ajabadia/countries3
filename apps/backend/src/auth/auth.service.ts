@@ -1,7 +1,7 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { UsersService } from '../users/users.service';
 import { JwtService } from '@nestjs/jwt';
-import * as bcrypt from 'bcrypt';
+import * as bcrypt from 'bcryptjs';
 import { CreateUserDto } from '../users/dto/create-user.dto';
 
 @Injectable()
@@ -14,8 +14,8 @@ export class AuthService {
     async validateUser(username: string, pass: string): Promise<any> {
         const user = await this.usersService.findOne(username);
         if (user) {
-            // Stub bcrypt.compare to avoid binary crashes (matches stubbed hashing)
-            const isValid = user.passwordHash === `hashed_${pass}`;
+            // Use bcryptjs to compare password
+            const isValid = await bcrypt.compare(pass, user.passwordHash);
             if (isValid) {
                 const { passwordHash, ...result } = user.toObject();
                 return result;

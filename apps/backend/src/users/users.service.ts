@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import * as bcrypt from 'bcrypt';
+import * as bcrypt from 'bcryptjs';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { User, UserDocument } from './schemas/user.schema';
@@ -31,9 +31,9 @@ export class UsersService {
         }
 
         try {
-            // Stub bcrypt to avoid binary crashes in Docker/Windows env
-            const passwordHash = `hashed_${createUserDto.password}`;
-            console.log('Password hashed successfully (stubbed)');
+            // Hash password with bcryptjs (salt rounds = 10)
+            const passwordHash = await bcrypt.hash(createUserDto.password, 10);
+            console.log('Password hashed successfully with bcryptjs');
 
             const userToCreate = {
                 email: createUserDto.email,
@@ -59,8 +59,8 @@ export class UsersService {
         console.log('🔧 UPDATE - Received DTO:', JSON.stringify(updateUserDto, null, 2));
         const updates: any = { ...updateUserDto };
         if (updateUserDto.password) {
-            // Stub bcrypt to avoid binary crashes (matches create method)
-            updates.passwordHash = `hashed_${updateUserDto.password}`;
+            // Hash password with bcryptjs (salt rounds = 10)
+            updates.passwordHash = await bcrypt.hash(updateUserDto.password, 10);
             delete updates.password;
         }
         console.log('🔧 UPDATE - Final updates object:', JSON.stringify(updates, null, 2));
