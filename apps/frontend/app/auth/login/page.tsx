@@ -47,11 +47,18 @@ export default function LoginPage() {
                     {error && <p className="text-red-500 text-sm">{error}</p>}
                     <button
                         type="submit"
-                        className="w-full rounded bg-blue-600 py-2 font-semibold hover:bg-blue-500 transition-colors"
+                        disabled={loading} // Added disabled attribute
+                        className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors" // Updated className
                     >
-                        Sign In
+                        {loading ? 'Logging in...' : 'Login'} {/* Updated button text */}
                     </button>
                 </form>
+
+                <div className="mt-6 text-center">
+                    <Link href="/auth/forgot-password" className="text-blue-400 hover:text-blue-300 text-sm">
+                        Forgot your password?
+                    </Link>
+                </div>
             </div>
         </div>
     );
