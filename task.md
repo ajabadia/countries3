@@ -1,0 +1,28 @@
+# Tareas del Proyecto Countries3
+
+- [x] **Fase 1: Configuración del Entorno**
+    - [x] Inicializar Monorepo (Turborepo + pnpm) <!-- id: 0 -->
+    - [x] Configurar Docker Compose (Mongo, Backend, Frontend) <!-- id: 1 -->
+    - [x] Configurar Git y Secretos (.env) <!-- id: 2 -->
+- [x] **Fase 2: Backend Core**
+    - [x] Instalar dependencias NestJS (Mongoose, Config, Joi) <!-- id: 3 -->
+    - [x] Implementar Módulo de Base de Datos Multi-Tenant <!-- id: 4 -->
+    - [x] Crear Interceptor de Auditoría <!-- id: 5 -->
+- [x] **Fase 3: Identidad (IAM)**
+    - [x] Instalar dependencias de Auth (Passport, JWT, BCrypt) <!-- id: 6 -->
+    - [x] Implementar Servicios de Usuario y Auth <!-- id: 7 -->
+    - [x] Crear Controladores de Login/Registro <!-- id: 8 -->
+- [x] **Fase 4: Frontend Foundation**
+    - [x] Instalar dependencias Next.js (Axios, Lucide, Tailwind) <!-- id: 9 -->
+    - [x] Crear Cliente API (Axios) <!-- id: 10 -->
+    - [x] Implementar Página de Login <!-- id: 11 -->
+    - [x] Implementar Dashboard Protegido <!-- id: 12 -->
+- [x] **Fase 5: Verificación Inicial**
+    - [x] Verificar estado de contenedores Docker <!-- id: 13 -->
+    - [x] Prueba de Conectividad (Backend y Frontend) <!-- id: 14 -->
+    - [x] Prueba Funcional (Registro y Login) <!-- id: 15 -->
+- [x] **Fase 6: Módulo de Geografía**
+    - [x] Definir Schema de Áreas (Tree Structure) <!-- id: 16 -->
+    - [x] Implementar CRUD de Países <!-- id: 17 -->
+- [x] **Fase 7: Módulo de Auditoría Real**
+    - [x] Conectar Interceptor a `audit_db` <!-- id: 18 -->

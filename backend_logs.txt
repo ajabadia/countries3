@@ -1,0 +1,72 @@
+﻿Done in 1.6s
+
+> backend@0.0.1 dev /app/apps/backend
+> nest start --watch
+
+[2J[3J[H[[90m1:51:39 PM[0m] Starting compilation in watch mode...
+
+[[90m1:51:46 PM[0m] Found 0 errors. Watching for file changes.
+
+
+changed 1 package in 1s
+
+1 package is looking for funding
+  run `npm fund` for details
+Scope: all 4 workspace projects
+Lockfile is up to date, resolution step is skipped
+Already up to date
+
+Done in 1.7s
+
+> backend@0.0.1 dev /app/apps/backend
+> nest start --watch
+
+[2J[3J[H[[90m1:54:12 PM[0m] Starting compilation in watch mode...
+
+[[90m1:54:20 PM[0m] Found 0 errors. Watching for file changes.
+
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[NestFactory] [39m[32mStarting Nest application...[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mDatabaseModule dependencies initialized[39m[38;5;3m +22ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mPassportModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigHostModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mConfigModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mJwtModule dependencies initialized[39m[38;5;3m +23ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseCoreModule dependencies initialized[39m[38;5;3m +49ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mGeographyModule dependencies initialized[39m[38;5;3m +2ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseCoreModule dependencies initialized[39m[38;5;3m +9ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mUsersModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuthModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseCoreModule dependencies initialized[39m[38;5;3m +6ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mMongooseModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAppModule dependencies initialized[39m[38;5;3m +1ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[InstanceLoader] [39m[32mAuditModule dependencies initialized[39m[38;5;3m +0ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAppController {/}:[39m[38;5;3m +6ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/, GET} route[39m[38;5;3m +3ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuthController {/auth}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/login, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/register, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/auth/profile, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mUsersController {/users}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/users, POST} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/users, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/users/:id, PATCH} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/users/:id, DELETE} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mGeographyController {/geography}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/geography/languages, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/geography/areas, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/geography/areas/roots, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/geography/areas/:id, GET} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/geography/areas/:id/children, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/geography/areas, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/geography/areas/bulk, POST} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/geography/areas/:id, PATCH} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/geography/areas/:id, DELETE} route[39m[38;5;3m +1ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[RoutesResolver] [39m[32mAuditController {/audit}:[39m[38;5;3m +0ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[RouterExplorer] [39m[32mMapped {/audit/logs, GET} route[39m[38;5;3m +0ms[39m
+[32m[Nest] 79  - [39m12/10/2025, 1:54:21 PM [32m    LOG[39m [38;5;3m[NestApplication] [39m[32mNest application successfully started[39m[38;5;3m +2ms[39m
