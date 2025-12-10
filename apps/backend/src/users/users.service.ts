@@ -73,4 +73,8 @@ export class UsersService {
         // Soft delete
         return this.userModel.findByIdAndUpdate(id, { isActive: false }, { new: true }).exec();
     }
+
+    async updatePassword(userId: string, passwordHash: string): Promise<UserDocument | null> {
+        return this.userModel.findByIdAndUpdate(userId, { passwordHash }, { new: true }).exec();
+    }
 }
